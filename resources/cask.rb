@@ -2,7 +2,8 @@ actions :cask, :uncask
 attribute :name,
   :name_attribute => true,
   :kind_of        => String,
-  :regex          => /\w+(?:\/\w+)+/
+  :regex          => /\w+(?:\/\w+)+/,
+  :options        => Array
 
 attribute :casked,
   :kind_of => [TrueClass, FalseClass]

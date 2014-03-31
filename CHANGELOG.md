@@ -2,6 +2,9 @@ homebrew Cookbook CHANGELOG
 ===========================
 This file is used to list changes made in each version of the homebrew cookbook.
 
+v1.5.6
+------
+- Added options as an array for cask provider
 
 v1.5.4
 ------

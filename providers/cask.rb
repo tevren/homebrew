@@ -12,9 +12,17 @@ end
 
 action :cask do
   unless @cask.casked
-    execute "installing cask #{new_resource.name}" do
-      command "/usr/local/bin/brew cask install #{new_resource.name}"
-      not_if "/usr/local/bin/brew brew list | grep #{new_resource.name}"
+    if new_resource.options
+      options = new_resource.options.join(" ")
+      execute "installing cask #{new_resource.name}" do
+        command "/usr/local/bin/brew cask install #{new_resource.name} #{options}"
+        not_if "/usr/local/bin/brew brew list | grep #{new_resource.name}"
+      end
+    else
+      execute "installing cask #{new_resource.name}" do
+        command "/usr/local/bin/brew cask install #{new_resource.name}"
+        not_if "/usr/local/bin/brew brew list | grep #{new_resource.name}"
+      end
     end
   end
 end
